@@ -26,13 +26,13 @@ class Board(tk.Tk):
         for x in range(8):
             self.squares.append([])
             for y in range(8):
-                self.squares[x].append(tk.Button(self.board, image=self.blank, command=lambda x_value=x,y_value=y: self.turn_black(x_value, y_value)))
+                self.squares[x].append(tk.Button(self.board, image=self.blank,
+                                                 command=lambda x_value=x,y_value=y: self.change_color(x_value, y_value, self.black)))
                 self.squares[x][y].grid(row=x, column=y, sticky='news')
 
-    def turn_black(self, x, y):
+    def change_color(self, x, y, color):
 
-        print(x)
-        print(y)
+        self.squares[x][y].config(image=color, state='disabled')
 
 if __name__ == '__main__':
 
