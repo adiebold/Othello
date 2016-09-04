@@ -1,11 +1,7 @@
 import tkinter as tk
 from PIL import ImageTk, Image
-from collections import namedtuple
 
 class Board(tk.Tk):
-
-    Sqr = namedtuple('Square', 'button x y')
-    squares = []
 
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
@@ -28,17 +24,15 @@ class Board(tk.Tk):
     def create_squares(self):
 
         for x in range(8):
+            self.squares.append([])
             for y in range(8):
-                self.squares.append(self.Sqr(tk.Button(self.board, image=self.blank, command=s)))
+                self.squares[x].append(tk.Button(self.board, image=self.blank, command=lambda x_value=x,y_value=y: self.turn_black(x_value, y_value)))
+                self.squares[x][y].grid(row=x, column=y, sticky='news')
 
-                # self.squares[x].append(tk.Button(self.board, image=self.blank, command=self.turn_black))
-                # # self.squares[x][y].pack(expand=True)
-                # self.squares[x][y].grid(row=x, column=y, sticky='news')
-                # self.squares[x][y].config(image=self.red)
+    def turn_black(self, x, y):
 
-    def turn_black(self):
-
-        print(type(self))
+        print(x)
+        print(y)
 
 if __name__ == '__main__':
 
