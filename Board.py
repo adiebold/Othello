@@ -1,10 +1,11 @@
 import tkinter as tk
 from PIL import ImageTk, Image
-import os
+from collections import namedtuple
 
 class Board(tk.Tk):
 
-
+    Sqr = namedtuple('Square', 'button x y')
+    squares = []
 
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
@@ -26,21 +27,18 @@ class Board(tk.Tk):
 
     def create_squares(self):
 
-        # frame1 = tk.Frame(self.board, bg = 'red')
-        # # frame1.pack(fill=tk.BOTH, expand=1)
-        # frame1.grid(row=0, column=0, sticky=tk.W+tk.E+tk.N+tk.S)
-        # # frame1.grid(row=0,column=0)
-        # label = tk.Label(frame1, text='test')
-        # label.pack()
-
         for x in range(8):
-            self.squares.append([])
             for y in range(8):
-                self.squares[x].append(tk.Button(self.board, image=self.blank))
-                # self.squares[x][y].pack(expand=True)
-                print(x, ' and ', y)
-                self.squares[x][y].grid(row=x, column=y, sticky='news')
+                self.squares.append(self.Sqr(tk.Button(self.board, image=self.blank, command=s)))
 
+                # self.squares[x].append(tk.Button(self.board, image=self.blank, command=self.turn_black))
+                # # self.squares[x][y].pack(expand=True)
+                # self.squares[x][y].grid(row=x, column=y, sticky='news')
+                # self.squares[x][y].config(image=self.red)
+
+    def turn_black(self):
+
+        print(type(self))
 
 if __name__ == '__main__':
 
