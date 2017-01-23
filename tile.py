@@ -5,7 +5,7 @@ class Tile():
     BLACK = 'black'
 
     def __init__(self, *args, **kwargs):
-        self.status = BLANK
+        self.status = self.BLANK
 
-    def print_status():
-        print(self.status)
+    def print_status(self):
+        print(self.status, end=' | ')
