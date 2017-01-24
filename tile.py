@@ -1,5 +1,7 @@
+'''a single tile in the Othello board'''
 class Tile():
 
+    #the three states a tile can be in
     BLANK = 'blank'
     RED = 'red'
     BLACK = 'black'
