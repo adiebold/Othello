@@ -1,8 +1,6 @@
 from tile import Tile
 
-'''
-A board made up of tiles for playing Othello
-'''
+'''A board made up of tiles for playing Othello'''
 class Board():
 
     def __init__(self, *args, **kwargs):
@@ -18,7 +16,10 @@ class Board():
                 curr_row.append(Tile())
             self.board.append(curr_row)
 
-'''prints the tiles in the layout of a SIZExSIZE board'''
+    def return_size(self):
+        return self.SIZE
+
+    '''prints the tiles in the layout of a SIZExSIZE board'''
     def print_board_status(self):
         print()
         for row in self.board:
